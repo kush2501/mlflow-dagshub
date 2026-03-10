@@ -7,6 +7,16 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import mlflow
+import dagshub 
+
+dagshub.init(repo_owner='kush2501', repo_name='mlflow-dagshub', mlflow=True)
+
+
+# Tracking uri.
+mlflow.set_tracking_uri("https://dagshub.com/kush2501/mlflow-dagshub.mlflow")
+
+
 
 # Load the iris dataset.
 iris = load_iris()
@@ -24,9 +34,7 @@ max_depth = 10
 
 # ------- Experiment Name --------#
 
-import mlflow
 
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 mlflow.set_experiment("Iris-Decision_Tree")
 
